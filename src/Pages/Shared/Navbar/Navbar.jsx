@@ -48,6 +48,11 @@ const Navbar = () => {
         }>
             About Us
         </NavLink></li>
+        <li><NavLink to='/contact' className={({ isActive }) =>
+            isActive ? "text-base font-bold text-[#00bbc9] mb-2" : "text-base font-semibold mb-2"
+        }>
+            Contact Us
+        </NavLink></li>
     </>
 
 
@@ -58,7 +63,7 @@ const Navbar = () => {
                     <div tabIndex={0} role="button" className="rounded-full border-2 p-2 border-[#00bbc9] text-[#00bbc9] hover:text-white hover:bg-[#00bbc9]">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M4 6h16M4 12h16M4 18h7" /></svg>
                     </div>
-                    <ul tabIndex={0} className="dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-fit pr-8 pl-4">
+                    <ul tabIndex={0} className="dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-36 pl-4">
                         {link}
                     </ul>
                 </div>
