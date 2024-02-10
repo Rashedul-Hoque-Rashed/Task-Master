@@ -13,7 +13,7 @@ const PrivateRouter = ({ children }) => {
     if(isLoading){
         return (
             <div className="text-center my-96">
-                <span className="loading loading-dots loading-lg"></span>
+                <span className="loading loading-dots loading-lg text-[#00bbc9]"></span>
             </div>
         )
     }

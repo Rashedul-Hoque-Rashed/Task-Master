@@ -8,11 +8,13 @@ AOS.init();
 
 const Main = () => {
     return (
-        <div className='max-w-7xl mx-auto px-2 md:px-3 lg:px-6 bg-[#0B1635] min-h-screen'>
-            <Navbar/>
-            <hr />
-            <Outlet/>
-            <Footer/>
+        <div className="bg-[#0B1635] min-h-screen">
+            <div className='max-w-7xl mx-auto px-2 md:px-3 lg:px-6'>
+                <Navbar />
+                <hr />
+                <Outlet />
+                <Footer />
+            </div>
         </div>
     );
 };
