@@ -7,9 +7,9 @@ const Banner = () => {
     return (
         <div className="px-6 py-10 bg-[#0B1635]">
             <div className="grid lg:grid-cols-2 grid-cols-1 rounded-lg">
-                <div>
+                <div data-aos="fade-right" data-aos-duration="2000">
                     <div className="flex flex-col justify-center items-center lg:items-start h-full">
-                        <h1 className="text-2xl font-bold text-[#00bbc9]">Your Ultimate Productivity Companion</h1>
+                        <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-center text-[#00bbc9]">Your Ultimate Productivity Companion</h1>
                         <h2 className="font-bold text-2xl md:text-3xl lg:text-4xl text-center lg:text-start my-2 text-white">
                         Effortlessly Organize, Prioritize, and Conquer Tasks
                         </h2>
@@ -18,7 +18,7 @@ const Banner = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="">
+                <div data-aos="fade-left" data-aos-duration="2000">
                     <img src={imgBn} alt="" />
                 </div>
             </div>
