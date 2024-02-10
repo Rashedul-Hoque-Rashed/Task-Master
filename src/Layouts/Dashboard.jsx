@@ -1,11 +1,11 @@
 
 
-// const Dashboard = () => {
-//     return (
-//         <div>
+const Dashboard = () => {
+    return (
+        <div>
             
-//         </div>
-//     );
-// };
+        </div>
+    );
+};
 
-// export default Dashboard;
+export default Dashboard;
