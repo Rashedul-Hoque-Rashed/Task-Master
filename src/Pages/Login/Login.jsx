@@ -1,6 +1,6 @@
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc"
-import loginImg from "../../assets/Images/Key-amico.png"
+import loginImg from "../../assets/Images/login.png"
 import Swal from "sweetalert2";
 import { useContext } from 'react';
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -87,18 +87,15 @@ const Login = () => {
                                     <label htmlFor="remember" className="text-gray-500">Remember me</label>
                                 </div>
                             </div>
-                            <div>
-                                <Link className="text-sm font-medium text-[#1F4B3F] hover:underline">Forgot password?</Link>
-                            </div>
                         </div>
-                        <button type="submit" className="btn normal-case w-full bg-[#1F4B3F] text-white hover:bg-[#0c3b2f]">Login</button>
+                        <button type="submit" className="btn normal-case w-full bg-[#00bbc9] text-white hover:bg-[#009aa0]">Login</button>
 
                     </form>
                     <div className="divider">OR</div>
                     <div className="space-y-4 md:space-y-6">
                         <button onClick={handelGoogle} className="btn normal-case w-full text-black"> <FcGoogle className="w-6 h-6" /> Login with Google</button>
                         <p className="text-sm font-light text-gray-500">
-                            Don’t have an account yet? <NavLink to="/register" href="#" className="font-medium text-[#1F4B3F] hover:underline">Register</NavLink>
+                            Don’t have an account yet? <NavLink to="/register" href="#" className="font-medium text-[#00bbc9] hover:underline">Register</NavLink>
                         </p>
                     </div>
                 </div>

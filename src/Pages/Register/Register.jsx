@@ -1,5 +1,5 @@
 import { NavLink, useNavigate} from "react-router-dom";
-import loginImg from "../../assets/Images/Key-amico.png"
+import loginImg from "../../assets/Images/login.png"
 import { useContext } from 'react';
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
@@ -89,12 +89,12 @@ const Register = () => {
                         <input id="terms" aria-describedby="terms" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300" required />
                       </div>
                       <div className="ml-3 text-sm">
-                        <label htmlFor="terms" className="font-light text-gray-500">I accept the <a className="font-medium text-[#1F4B3F] hover:underline" href="#">Terms and Conditions</a></label>
+                        <label htmlFor="terms" className="font-light text-gray-500">I accept the <a className="font-medium text-[#00bbc9] hover:underline" href="#">Terms and Conditions</a></label>
                       </div>
                   </div>
-                        <button type="submit" className="btn normal-case w-full bg-[#1F4B3F] text-white hover:bg-[#0c3b2f]">Register</button>
+                        <button type="submit" className="btn normal-case w-full bg-[#00bbc9] text-white hover:bg-[#009aa0]">Register</button>
                         <p className="text-sm font-light text-gray-500">
-                            Already have an account? <NavLink to="/login" href="#" className="font-medium text-[#1F4B3F] hover:underline">Login</NavLink>
+                            Already have an account? <NavLink to="/login" href="#" className="font-medium text-[#00bbc9] hover:underline">Login</NavLink>
                         </p>
                     </form>
 

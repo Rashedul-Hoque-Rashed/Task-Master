@@ -34,7 +34,7 @@ const Navbar = () => {
 
     const link = <>
         <li><NavLink to='/' className={({ isActive }) =>
-            isActive ? "text-base font-bold text-[#1F4B3F]" : "text-base font-semibold"
+            isActive ? "text-base font-bold text-[#00bbc9]" : "text-base font-semibold"
         }>
             Home
         </NavLink></li>
@@ -42,13 +42,13 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar py-4 bg-[#0B1635]">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-11 w-11 text-[#1F4B3F]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                    <div tabIndex={0} role="button" className="rounded-full border-2 p-2 border-[#00bbc9] text-[#00bbc9] hover:text-white hover:bg-[#00bbc9]">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M4 6h16M4 12h16M4 18h7" /></svg>
                     </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-fit pr-8 pl-2">
                         {link}
                     </ul>
                 </div>
@@ -61,17 +61,17 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ? <div className="dropdown dropdown-end">
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-                            <img src={user?.photoURL} alt="" className="w-11 h-11 rounded-full" />
+                        <div tabIndex={0} role="button" className="">
+                            <img src={user?.photoURL} alt="" className="w-12 h-12 rounded-full" />
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-28">
                             <li>
-                            <button onClick={handelLogOut} className="text-base font-bold text-[#1F4B3F]">
+                            <button onClick={handelLogOut} className="text-base font-bold text-black hover:text-[#00bbc9] px-2">
                                 Log Out
                             </button>
                             </li>
                         </ul>
-                    </div> : <Link to='/login' className="text-base font-bold bg-white text-[#1F4B3F] border-2 border-[#1f4b3f] px-4 py-1 rounded-xl hover:text-white hover:bg-[#1f4b3f]">
+                    </div> : <Link to='/login' className="text-base font-bold bg-none text-[#00bbc9] border-2 border-[#00bbc9] px-4 py-2 rounded-xl hover:text-white hover:bg-[#00bbc9]">
                         Login
                     </Link>
                 }
