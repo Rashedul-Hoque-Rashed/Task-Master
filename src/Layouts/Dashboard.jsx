@@ -43,12 +43,12 @@ const Dashboard = () => {
         <div className="max-w-7xl mx-auto ">
             <div className="lg:grid lg:grid-cols-12 grid-cols-none">
                 <div className="lg:col-span-2">
-                    {isTabletOrMobile && (
-                        <button className="p-5 fixed" onClick={toggleSidebar}>
+                    {isTabletOrMobile && ( 
+                        <button className="p-5 fixed z-10 overflow-auto" onClick={toggleSidebar}>
                             {showSidebar ? (
                                 <CgClose className="text-3xl" />
                             ) : (
-                                <CgMenuLeftAlt className="text-3xl" />
+                                <CgMenuLeftAlt className="w-10 h-10 bg-base-300 rounded-full p-2" />
                             )}
                         </button>
                     )}
