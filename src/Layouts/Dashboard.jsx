@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { CgMenuLeftAlt, CgClose } from "react-icons/cg";
 import { LuLogOut } from "react-icons/lu";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import logo from "../assets/Images/logo.png";
 import { AuthContext } from "../Provider/AuthProvider";
 
@@ -60,7 +60,7 @@ const Dashboard = () => {
                         >
                             <div className="px-6 py-4 top-0 left-0 h-screen bg-[#0B1635] sidebar-content">
                                 <div className="flex justify-center items-center gap-2">
-                                    <img className="w-36" src={logo} alt="" />
+                                    <Link to='/'><img className="w-36" src={logo} alt="" /></Link>
                                     <br />
                                     {isTabletOrMobile && (
                                         <button className="lg:hidden block" onClick={closeSidebar}>

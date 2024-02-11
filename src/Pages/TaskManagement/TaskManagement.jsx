@@ -1,10 +1,12 @@
 import AddTask from './../../Components/AddTask';
 import { MdAutoDelete } from "react-icons/md";
-import UpdateTask from '../../Components/UpdateTask';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
+import { CiEdit } from 'react-icons/ci';
 
 
 const TaskManagement = () => {
+
 
 
     const taskDataString = localStorage.getItem('tasked');
@@ -32,9 +34,22 @@ const TaskManagement = () => {
                     if (taskIndexToDelete !== -1) {
                         taskData.splice(taskIndexToDelete, 1);
                         localStorage.setItem('tasked', JSON.stringify(taskData));
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Successfully delete this task',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
                         window.location.reload();
+
                     } else {
                         console.error('Task not found.');
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Task not found.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
                     }
                 }
             })
@@ -51,10 +66,10 @@ const TaskManagement = () => {
             console.log('Task updated successfully');
             window.location.reload();
         } else {
-            console.error('Task not found.'); 
+            console.error('Task not found.');
         }
-        
-           
+
+
     }
 
 
@@ -79,14 +94,16 @@ const TaskManagement = () => {
                                             <p className={`text-base font-medium text-white px-4 py-1 w-fit rounded-full ${task.priority === 'High' ? 'bg-[#FFA500]' : task.priority === 'Medium' ? 'bg-[#0000FF]' : 'bg-[#808080]'}`}>{task.priority}</p>
                                         </div>
                                         <div className='flex gap-4 items-center'>
-                                            <UpdateTask id={task.id} tasked={task} />
+                                        <button className='active:scale-95'>
+                                            <Link to={`/dashboard/update/${task.id}`}><CiEdit className='w-8 h-8 bg-gray-600 rounded-xl text-white p-1' /></Link>
+                                            </button>
                                             <button onClick={() => handleDelete(task.id)} className='active:scale-95'>
                                                 <MdAutoDelete className='w-8 h-8 bg-red-700 rounded-xl text-white p-1' />
                                             </button>
                                         </div>
                                     </div>
                                     <div className='flex gap-2 items-center border py-1 px-4 w-fit rounded-full'>
-                                    <button onClick={() => handelStatus(task.id, 'Ongoing')} className="text-base font-medium text-white px-4 py-2 bg-[#3CB371] w-fit rounded-full mr-2 active:scale-95">
+                                        <button onClick={() => handelStatus(task.id, 'Ongoing')} className="text-base font-medium text-white px-4 py-2 bg-[#3CB371] w-fit rounded-full mr-2 active:scale-95">
                                             Ongoing
                                         </button>
                                         <button onClick={() => handelStatus(task.id, 'Completed')} className="text-base font-medium text-white px-4 py-2 bg-[#9370DB] w-fit rounded-full active:scale-95">
@@ -102,7 +119,7 @@ const TaskManagement = () => {
                     <h4 className="text-center text-xl font-bold mt-6 mb-2">Ongoing</h4>
                     <div className="border-4 border-[#3CB371] rounded-full"></div>
                     <div>
-                    {
+                        {
                             ongoingTasks.map(task => <div key={task.id} className="card bg-base-100 shadow-xl my-4 cursor-pointer">
                                 <div className="card-body">
                                     <div className="flex justify-between flex-col">
@@ -115,14 +132,16 @@ const TaskManagement = () => {
                                             <p className={`text-base font-medium text-white px-4 py-1 w-fit rounded-full ${task.priority === 'High' ? 'bg-[#FFA500]' : task.priority === 'Medium' ? 'bg-[#0000FF]' : 'bg-[#808080]'}`}>{task.priority}</p>
                                         </div>
                                         <div className='flex gap-4 items-center'>
-                                            <UpdateTask id={task.id} tasked={task} />
+                                        <button className='active:scale-95'>
+                                            <Link to={`/dashboard/update/${task.id}`}><CiEdit className='w-8 h-8 bg-gray-600 rounded-xl text-white p-1' /></Link>
+                                            </button>
                                             <button onClick={() => handleDelete(task.id)} className='active:scale-95'>
                                                 <MdAutoDelete className='w-8 h-8 bg-red-700 rounded-xl text-white p-1' />
                                             </button>
                                         </div>
                                     </div>
                                     <div className='flex gap-2 items-center border py-1 px-4 w-fit rounded-full'>
-                                    <button onClick={() => handelStatus(task.id, 'To-Do')} className="text-base font-medium text-white px-4 py-2 bg-[#FF6347] w-fit rounded-full mr-2 active:scale-95">
+                                        <button onClick={() => handelStatus(task.id, 'To-Do')} className="text-base font-medium text-white px-4 py-2 bg-[#FF6347] w-fit rounded-full mr-2 active:scale-95">
                                             To-Do
                                         </button>
                                         <button onClick={() => handelStatus(task.id, 'Completed')} className="text-base font-medium text-white px-4 py-2 bg-[#9370DB] w-fit rounded-full active:scale-95">
@@ -138,7 +157,7 @@ const TaskManagement = () => {
                     <h4 className="text-center text-xl font-bold mt-6 mb-2">Completed</h4>
                     <div className="border-4 border-[#9370DB] rounded-full"></div>
                     <div>
-                    {
+                        {
                             completedTasks.map(task => <div key={task.id} className="card bg-base-100 shadow-xl my-4 cursor-pointer">
                                 <div className="card-body">
                                     <div className="flex justify-between flex-col">
@@ -151,7 +170,9 @@ const TaskManagement = () => {
                                             <p className={`text-base font-medium text-white px-4 py-1 w-fit rounded-full ${task.priority === 'High' ? 'bg-[#FFA500]' : task.priority === 'Medium' ? 'bg-[#0000FF]' : 'bg-[#808080]'}`}>{task.priority}</p>
                                         </div>
                                         <div className='flex gap-4 items-center'>
-                                            <UpdateTask id={task.id} tasked={task} />
+                                        <button className='active:scale-95'>
+                                            <Link to={`/dashboard/update/${task.id}`}><CiEdit className='w-8 h-8 bg-gray-600 rounded-xl text-white p-1' /></Link>
+                                            </button>
                                             <button onClick={() => handleDelete(task.id)} className='active:scale-95'>
                                                 <MdAutoDelete className='w-8 h-8 bg-red-700 rounded-xl text-white p-1' />
                                             </button>
@@ -161,7 +182,7 @@ const TaskManagement = () => {
                                         <button onClick={() => handelStatus(task.id, 'To-Do')} className="text-base font-medium text-white px-4 py-2 bg-[#FF6347] w-fit rounded-full active:scale-95">
                                             To-Do
                                         </button>
-                                    <button onClick={() => handelStatus(task.id, 'Ongoing')} className="text-base font-medium text-white px-4 py-2 bg-[#3CB371] w-fit rounded-full mr-2 active:scale-95">
+                                        <button onClick={() => handelStatus(task.id, 'Ongoing')} className="text-base font-medium text-white px-4 py-2 bg-[#3CB371] w-fit rounded-full mr-2 active:scale-95">
                                             Ongoing
                                         </button>
                                     </div>

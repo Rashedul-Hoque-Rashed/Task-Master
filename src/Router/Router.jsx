@@ -8,6 +8,7 @@ import PrivateRouter from "./PrivateRouter";
 import About from "../Pages/About/About";
 import Contact from "../Pages/Contact/Contact";
 import TaskManagement from "../Pages/TaskManagement/TaskManagement";
+import UpdateTask from "../Components/UpdateTask";
 
 
 
@@ -45,7 +46,11 @@ const router = createBrowserRouter([
             {
                 path: "/dashboard",
                 element: <TaskManagement />
-            }
+            },
+            {
+                path: "/dashboard/update/:id",
+                element: <UpdateTask />
+            },
         ]
     }
 ]);
