@@ -33,7 +33,7 @@ const UpdateTask = () => {
 
             localStorage.setItem('tasked', JSON.stringify(taskData));
             console.log('Task updated successfully');
-            navigate('/dashboard')
+            navigate('/dashboard/taskManage')
             Swal.fire({
                 icon: 'success',
                 title: 'Your task update successfully',

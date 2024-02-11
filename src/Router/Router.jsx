@@ -9,6 +9,7 @@ import About from "../Pages/About/About";
 import Contact from "../Pages/Contact/Contact";
 import TaskManagement from "../Pages/TaskManagement/TaskManagement";
 import UpdateTask from "../Components/UpdateTask";
+import Counter from "../Pages/Counter/Counter";
 
 
 
@@ -44,12 +45,16 @@ const router = createBrowserRouter([
         element: <PrivateRouter><Dashboard /></PrivateRouter>,
         children: [
             {
-                path: "/dashboard",
+                path: "/dashboard/taskManage",
                 element: <TaskManagement />
             },
             {
                 path: "/dashboard/update/:id",
                 element: <UpdateTask />
+            },
+            {
+                path: "/dashboard/counter",
+                element: <Counter />
             },
         ]
     }

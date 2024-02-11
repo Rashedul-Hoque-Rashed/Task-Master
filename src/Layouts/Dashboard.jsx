@@ -85,10 +85,15 @@ const Dashboard = () => {
                                         }>
                                             Home
                                         </NavLink></li>
-                                        <li><NavLink to='/dashboard' className={({ isActive }) =>
+                                        <li><NavLink to='/dashboard/taskManage' className={({ isActive }) =>
                                             isActive ? "text-base font-bold text-[#00bbc9] mb-2" : "text-base font-semibold mb-2 text-white"
                                         }>
                                             Dashboard
+                                        </NavLink></li>
+                                        <li><NavLink to='/dashboard/counter' className={({ isActive }) =>
+                                            isActive ? "text-base font-bold text-[#00bbc9] mb-2" : "text-base font-semibold mb-2 text-white"
+                                        }>
+                                            Counter
                                         </NavLink></li>
                                         <li><NavLink to='/about' className={({ isActive }) =>
                                             isActive ? "text-base font-bold text-[#00bbc9] mb-2" : "text-base font-semibold mb-2 text-white"

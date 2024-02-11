@@ -38,7 +38,7 @@ const Navbar = () => {
         }>
             Home
         </NavLink></li>
-        <li><NavLink to='/dashboard' className={({ isActive }) =>
+        <li><NavLink to='/dashboard/taskManage' className={({ isActive }) =>
             isActive ? "text-base font-bold text-[#00bbc9] mb-2" : "text-base font-semibold mb-2"
         }>
             Dashboard
