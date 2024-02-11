@@ -7,6 +7,7 @@ import Dashboard from "../Layouts/Dashboard";
 import PrivateRouter from "./PrivateRouter";
 import About from "../Pages/About/About";
 import Contact from "../Pages/Contact/Contact";
+import TaskManagement from "../Pages/TaskManagement/TaskManagement";
 
 
 
@@ -39,7 +40,13 @@ const router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <PrivateRouter><Dashboard/></PrivateRouter>
+        element: <PrivateRouter><Dashboard /></PrivateRouter>,
+        children: [
+            {
+                path: "/dashboard",
+                element: <TaskManagement />
+            }
+        ]
     }
 ]);
 

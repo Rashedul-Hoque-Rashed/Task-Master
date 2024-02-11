@@ -4,7 +4,6 @@ import { LuLogOut } from "react-icons/lu";
 import { NavLink, Outlet } from "react-router-dom";
 import logo from "../assets/Images/logo.png";
 import { AuthContext } from "../Provider/AuthProvider";
-import AddTask from "../Components/AddTask";
 
 
 
@@ -101,9 +100,6 @@ const Dashboard = () => {
                                         }>
                                             Contact Us
                                         </NavLink></li>
-                                        <li className="py-2">
-                                            <AddTask />
-                                        </li>
                                     </ul>
                                     <button
                                         className="text-base font-bold bg-none text-[#00bbc9] border-2 border-[#00bbc9] px-4 py-2 mt-6 rounded-xl hover:text-white hover:bg-[#00bbc9] flex items-center gap-2"
