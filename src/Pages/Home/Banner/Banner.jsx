@@ -13,7 +13,7 @@ const Banner = () => {
                         <h2 className="font-bold text-2xl md:text-3xl lg:text-4xl text-center lg:text-start my-2 text-white">
                         Effortlessly Organize, Prioritize, and Conquer Tasks
                         </h2>
-                        <Link to='/dashboard' className="text-base font-bold bg-[#0B1635] text-[#00bbc9] border-2 border-[#00bbc9] px-4 py-2 mt-6 rounded-xl hover:text-white hover:bg-[#00bbc9] flex items-center gap-2">
+                        <Link to='/dashboard/taskManage' className="text-base font-bold bg-[#0B1635] text-[#00bbc9] border-2 border-[#00bbc9] px-4 py-2 mt-6 rounded-xl hover:text-white hover:bg-[#00bbc9] flex items-center gap-2">
                             Let&#39;s Explore <GoArrowUpRight className="h-6 w-6" />
                         </Link>
                     </div>
