@@ -53,6 +53,7 @@ const AddTask = () => {
 
         form.reset();
         document.getElementById('my_modal_3').close();
+        window.location.reload();
 
         console.log(localStorage.getItem('tasked'))
 

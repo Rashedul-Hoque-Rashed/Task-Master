@@ -1,28 +1,44 @@
-import { useContext } from 'react';
 import AddTask from './../../Components/AddTask';
-import { CiEdit } from "react-icons/ci";
-import { GoArrowUpRight } from 'react-icons/go';
 import { MdAutoDelete } from "react-icons/md";
-import { AuthContext } from '../../Provider/AuthProvider';
-import { useForm } from 'react-hook-form';
-import { IoMdCloseCircle } from 'react-icons/io';
+import UpdateTask from '../../Components/UpdateTask';
+import Swal from 'sweetalert2';
 
 
 const TaskManagement = () => {
 
-    const { user } = useContext(AuthContext);
-    const { register } = useForm();
 
     const taskDataString = localStorage.getItem('tasked');
     const taskData = taskDataString ? JSON.parse(taskDataString) : [];
 
 
     const todoTasks = taskData.filter(task => task.status === 'To-Do');
-    const ongoingTasks = taskData.filter(task => task.status === 'Ongoing');
-    const completedTasks = taskData.filter(task => task.status === 'Completed');
+    // const ongoingTasks = taskData.filter(task => task.status === 'Ongoing');
+    // const completedTasks = taskData.filter(task => task.status === 'Completed');
 
+    const handleDelete = (id) => {
 
-    
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    const taskIndexToDelete = taskData.findIndex(task => task.id === id);
+                    if (taskIndexToDelete !== -1) {
+                        taskData.splice(taskIndexToDelete, 1);
+                        localStorage.setItem('tasked', JSON.stringify(taskData));
+                        window.location.reload();
+                    } else {
+                        console.error('Task not found.');
+                    }
+                }
+            })
+    }
 
 
     return (
@@ -46,45 +62,13 @@ const TaskManagement = () => {
                                             <p className={`text-base font-medium text-white px-4 py-1 w-fit rounded-full ${task.priority === 'High' ? 'bg-[#FFA500]' : task.priority === 'Medium' ? 'bg-[#0000FF]' : 'bg-[#808080]'}`}>{task.priority}</p>
                                         </div>
                                         <div className='flex gap-4 items-center'>
-                                            <button onClick={() => document.getElementById('my_modal_5').showModal()} className='active:scale-95'>
-                                                <CiEdit className='w-8 h-8 bg-gray-600 rounded-xl text-white p-1' />
-                                            </button>
-                                            <button className='active:scale-95'>
+                                            <UpdateTask taskId={task.id} />
+                                            <button onClick={() => handleDelete(task.id)} className='active:scale-95'>
                                                 <MdAutoDelete className='w-8 h-8 bg-red-700 rounded-xl text-white p-1' />
                                             </button>
                                         </div>
                                     </div>
                                 </div>
-                                <div>
-                <dialog id="my_modal_5" className="modal">
-                    <div className="modal-box">
-                        <form method="dialog">
-                            <button className="absolute right-2 top-2 text-red-900"><IoMdCloseCircle /></button>
-                        </form>
-                        <form onSubmit={handelEdit} className="w-full mx-auto flex flex-col">
-                            <label htmlFor="title" className="mx-2 text-lg font-semibold">Title</label>
-                            <input placeholder="Enter Task Title" name="title" id="title" defaultValue={task.title} className="input input-bordered rounded-full w-full mt-2 mb-4 py-2 px-4" {...register("title")} required />
-
-                            <label htmlFor="deadline" className="mx-2 text-lg font-semibold">Deadline</label>
-                            <input type="date" name="deadline" min={new Date().toISOString().split('T')[0]} id="deadline" defaultValue={task.deadline} className="input input-bordered rounded-full w-full mt-2 mb-4 py-2 px-4" {...register("deadline")} required />
-
-                            <label htmlFor="priority" className="mx-2 text-lg font-semibold">Priority</label>
-                            <select id="priority" name="priority" defaultValue={task.priority} className="select select-bordered rounded-full w-full mt-2 mb-4 py-2 px-4" {...register("priority")} required>
-                                <option value="High">High</option>
-                                <option value="Medium">Medium</option>
-                                <option value="Low">Low</option>
-                            </select>
-
-                            <label htmlFor="description" className="mx-2 text-lg font-semibold">Description</label>
-                            <textarea type="text" name="description" rows={30} cols={10} placeholder="Enter Task Description" id="description" defaultValue={task.description} className="input input-bordered h-28 py-2 px-4 rounded-3xl w-full mt-2 mb-4" {...register("description")} required />
-
-                            <button type="submit" className="text-base font-bold bg-none w-fit mx-auto text-[#00bbc9] border-2 border-[#00bbc9] px-4 py-2 mt-6 rounded-xl hover:text-white hover:bg-[#00bbc9] flex items-center gap-2 active:scale-95">
-                                Add Task <GoArrowUpRight className="h-6 w-6" />
-                            </button>
-                        </form>
-                    </div>
-                </dialog>
-            </div>
                             </div>)
                         }
                     </div>
@@ -104,7 +88,7 @@ const TaskManagement = () => {
                     </div>
                 </div>
             </div>
-            
+
         </div>
     );
 };
