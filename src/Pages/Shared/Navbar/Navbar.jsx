@@ -61,7 +61,7 @@ const Navbar = () => {
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="rounded-full border-2 p-2 border-[#00bbc9] text-[#00bbc9] hover:text-white hover:bg-[#00bbc9]">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-6 md:w-6 lg:h-8 lg:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M4 6h16M4 12h16M4 18h7" /></svg>
                     </div>
                     <ul tabIndex={0} className="dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-36 pl-4">
                         {link}
@@ -77,7 +77,7 @@ const Navbar = () => {
                 {
                     user ? <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="">
-                            <img src={user?.photoURL} alt="" className="w-12 h-12 rounded-full" />
+                            <img src={user?.photoURL} alt="" className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 rounded-full" />
                         </div>
                         <ul tabIndex={0} className="dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-28">
                             <li>
